@@ -3,7 +3,7 @@ import "./styles/products.scss";
 import { GetCall } from "../../Backend/API/APICalls";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
+
 
 
 function GetProduct() {
@@ -77,7 +77,6 @@ function GetProduct() {
           </a>
         </div>
       )}
-      <Footer/>
     </div>
   );
 }

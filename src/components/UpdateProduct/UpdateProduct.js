@@ -1,71 +1,74 @@
-import React, { useState } from "react";
-import { PatchCall } from "../../Backend/API/APICalls";
+import React, { useEffect, useState } from "react";
+import { GetSingleCall, PatchCall } from "../../Backend/API/APICalls";
 import { useForm } from "react-hook-form";
 import { useLocation } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
+
 
 function UpdateProduct() {
   const { state } = useLocation();
   const { id } = state;
-  const [data, setData] = useState({});
+  const [response,setResponse]=useState({});
   const { register, handleSubmit } = useForm();
   const handleRegistration = (data) => {
-      setData(data);
-      getData(data);
+      return updateData(data)
   };
+  useEffect(()=>{
+    getData(id)
 
-  async function getData(data) {
-    const temp = await PatchCall(id, data);
-    return setData(temp);
+  },[])
+  async function getData(id){
+    const res=await GetSingleCall(id);
+    return setResponse(res)
   }
-  console.log(id);
-
+  async function updateData(data) {
+    const temp = await PatchCall(id,data);
+    console.log(temp);
+  }
   return (
     <div>
-      <Navbar display={true}/>
-      <div className="form">
+      <Navbar display={false}/>
+       <div className="form">
         <form onSubmit={handleSubmit(handleRegistration)}>
+          <label>Product Name</label>
           <input
             className="prod-name"
             type="text"
-            label="product-name"
-            placeholder="title"
+            placeholder={response.title}
             {...register("title")}
           />
+          <label>Product Price</label>
           <input
             className="prod-price"
             type="text"
-            label="price"
-            placeholder="price"
+            placeholder={response.price}
             {...register("price")}
           />
+          <label>Product Description</label>
           <input
             className="prod-description"
             type="text"
-            label="Description"
-            placeholder="description"
+            placeholder={response.description}
             {...register("description")}
           />
+          <label>Product Image</label>
           <input
             className="prod-image"
             type="text"
-            label="image"
-            placeholder="image"
+            placeholder={response.image}
             {...register("image")}
           />
+          <label>Product Category</label>
           <input
             className="prod-category"
             type="text"
-            label="category"
-            placeholder="category"
+            placeholder={response.category}
             {...register("category")}
           />
           <button className="submitbtn" type="submit">
             Submit
           </button>
         </form>
-        <Footer/>
       </div>
     </div>
   );

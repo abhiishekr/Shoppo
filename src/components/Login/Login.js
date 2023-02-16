@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import "./styles/Login.scss";
-import Footer from "../Footer/Footer";
+import { Input } from "antd";
 
 function Login() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, control } = useForm();
   const [validation, setValidation] = useState(true);
   const navigateTo = useNavigate();
   function redirectRegister() {
@@ -22,40 +22,49 @@ function Login() {
       navigateTo("/Product");
     } else {
       setValidation(false);
-      
     }
   };
 
   return (
     <div>
-      <Navbar display={false}/>
+      <Navbar display={false} />
       <div className="form">
         <form onSubmit={handleSubmit(onSubmit)}>
           <label>Email</label>
-          <input
+          <Controller
+            control={control}
             className="form-control"
-            type="email"
+            type="text"
             name="email"
             placeholder="email"
             {...register("email")}
+            
+            render={({ field }) => <Input {...field} />}
           />
           <label>Password</label>
-          <input
+          <Controller
             className="form-control"
-            type="password"
+            type="text"
+            control={control}
             placeholder="password"
             name="password"
             {...register("password")}
+            render={({ field }) => <Input {...field} />}
           />
-
-          <button className="loginbtn" type="submit">
+          
+          <button className="loginbtn" type="primary" onClick={()=>{onSubmit()}}>
             Login
           </button>
-          <button className="loginbtn" onClick={() => redirectRegister()}>Register</button>
-          </form>
-          {validation ? <span></span> : <span className="validation">Invalid email or password</span>}
+          <button className="loginbtn" onClick={() => redirectRegister()}>
+            Register
+          </button>
+        </form>
+        {validation ? (
+          <span></span>
+        ) : (
+          <span className="validation">Invalid email or password</span>
+        )}
       </div>
-      <Footer/>
     </div>
   );
 }

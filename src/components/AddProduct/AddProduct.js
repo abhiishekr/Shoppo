@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { PostCall } from "../../Backend/API/APICalls";
 import { useForm } from "react-hook-form";
 import "./styles/AddProduct.scss";
-import Footer from "../Footer/Footer";
+
 
 function AddProduct() {
   const [data, setData] = useState({});
@@ -56,7 +56,6 @@ function AddProduct() {
           />
           <button className="submitbtn" type="submit">Submit</button>
         </form>
-        <Footer/>
       </div>
 
     </div>

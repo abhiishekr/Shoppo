@@ -40,7 +40,7 @@ async function PatchCall(id,prod) {
     .then((res) => {
       return res.data;
     })
-    .catch((e) => console.log(e));
+    .catch((e) => {return (e)});
 }
 
 async function PostCall(itemData) {

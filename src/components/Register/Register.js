@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { user } from "../Context/RegisterSlice";
 import "./styles/Register.scss";
-import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 
 function Register() {
@@ -61,7 +60,6 @@ function Register() {
           <a className="login-link" href="/">Already have an account? Click here to login</a>
           
         </form>
-        <Footer/>
       </div>
     </div>
   );
