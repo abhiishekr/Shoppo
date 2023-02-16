@@ -1,0 +1,18 @@
+{
+    "cSpell.words": [
+        "addbtn",
+        "deletebtn",
+        "heroicons",
+        "loginbtn",
+        "SHOPPO",
+        "submitbtn"
+    ],
+    "cSpell.customDictionaries": {
+        "custom-dictionary-workspace": {
+            "name": "custom-dictionary-workspace",
+            "path": "${workspaceFolder:shopping}/.cspell/custom-dictionary-workspace.txt",
+            "addWords": true,
+            "scope": "workspace"
+        }
+    }
+}

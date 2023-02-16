@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+.form{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 450px;
+
+}
+.prod-name{
+    display: flex;
+    margin-top: 10px;
+    width: 200%;
+    border: 1px solid #000000;
+    padding: 10px;
+    border-radius: 7px;
+
+}
+.prod-price{
+    display: flex;
+    margin-top: 5px;
+    width: 200%;
+    border: 1px solid #000000;
+    padding: 10px;
+    border-radius: 7px;
+
+}
+.prod-description{
+    display: flex;
+    margin-top: 5px;
+    width: 200%;
+    height: 70px;
+    border: 1px solid #000000;
+    padding: 10px;
+    border-radius: 7px;
+
+}
+.prod-image{
+    display: flex;
+    margin-top: 5px;
+    width: 200%;
+    border: 1px solid #000000;
+    padding: 10px;
+    border-radius: 7px;
+
+}
+.prod-category{
+    display: flex;
+    margin-top: 5px;
+    width: 200%;
+    border: 1px solid #000000;
+    padding: 10px;
+    border-radius: 7px;
+
+}
+.submitbtn{
+    margin-top: 10%;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 10px 12px;
+    background-color: rgb(173, 173, 173);
+&:hover{
+        cursor: pointer;
+        scale: 101%;
+        transition: ease-in-out;
+        transition-duration: 550ms;
+        }
+}

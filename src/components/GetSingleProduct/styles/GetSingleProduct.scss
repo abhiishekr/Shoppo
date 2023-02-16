@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+.container{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding:40px;
+    border-radius: 16px;
+
+}   
+    
+
+.parent{
+    margin-top: 30px;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 250px;
+}
+
+.img{
+    width: 480px;
+    max-height: 480px;
+}
+
+.title{
+
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.price{
+    font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 30px;
+
+}
+.desc{
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    max-width: 500px;
+    justify-content: center;
+    align-items: center;
+}
+.deletebtn{
+  border-radius: 8px;
+  border-width: 0;
+  cursor: pointer;
+  padding: 10px 12px;
+  background-color: rgb(173, 173, 173);
+  position:relative;
+  left: -150%;
+  &:hover{
+    cursor: pointer;
+    scale: 101%;
+    transition: ease-in-out;
+    transition-duration: 550ms;
+    }
+  
+}
+.updatebtn{
+  border-radius: 8px;
+  border-width: 0;
+  cursor: pointer;
+  padding: 10px 12px;
+  background-color: rgb(173, 173, 173);
+  position: relative;
+  right: -150%;
+  &:hover{
+    cursor: pointer;
+    scale: 101%;
+    transition: ease-in-out;
+    transition-duration: 550ms;
+    }
+}
