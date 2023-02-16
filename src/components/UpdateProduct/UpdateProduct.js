@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { PatchCall } from "../../Backend/API/APICalls";
 import { useForm } from "react-hook-form";
 import { useLocation } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 function UpdateProduct() {
   const { state } = useLocation();
@@ -21,6 +23,7 @@ function UpdateProduct() {
 
   return (
     <div>
+      <Navbar display={true}/>
       <div className="form">
         <form onSubmit={handleSubmit(handleRegistration)}>
           <input
@@ -62,6 +65,7 @@ function UpdateProduct() {
             Submit
           </button>
         </form>
+        <Footer/>
       </div>
     </div>
   );

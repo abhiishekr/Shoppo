@@ -7,7 +7,7 @@ import UpdateProduct from "./components/UpdateProduct/UpdateProduct";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register"
 import { Route, Routes } from "react-router-dom";
-import AuthRoute from "./components/Routes/AuthRoute";
+
 
 
 function App() {
@@ -16,8 +16,10 @@ function App() {
     <Routes>
       <Route path="/" exact element = {<Login/>} />
       <Route path="/Product" exact element = {<GetProduct/>} />
+      <Route path="/singleProduct/" exact element={<GetSingleProduct/>}/>
       <Route path="/Register" exact element = {<Register/>} />
       <Route path="/Nav" exact element={<Navbar/>}/>
+      <Route path="/AddProduct" exact element={<AddProduct/>}/>
     </Routes>
     </>
   );

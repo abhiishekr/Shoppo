@@ -1,12 +1,14 @@
 import React from "react";
 import "./styles/Navbar.scss";
 import { PlusIcon } from "@heroicons/react/24/outline";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = (props) => {
   const displayPlusIcon = props.display;
-  console.log(displayPlusIcon);
+  const navigateTo=useNavigate();
   function handleOnClick() {
     console.log("hancleclick");
+    navigateTo("/AddProduct")
   }
 
   return (

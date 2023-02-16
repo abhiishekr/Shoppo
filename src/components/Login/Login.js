@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import "./styles/Login.scss";
+import Footer from "../Footer/Footer";
 
 function Login() {
   const { register, handleSubmit } = useForm();
@@ -21,6 +22,7 @@ function Login() {
       navigateTo("/Product");
     } else {
       setValidation(false);
+      
     }
   };
 
@@ -49,10 +51,11 @@ function Login() {
           <button className="loginbtn" type="submit">
             Login
           </button>
-          {validation ? <span></span> : <span>Invalid Email or Password</span>}
-        </form>
-        <button onClick={() => redirectRegister()}>Register</button>
+          <button className="loginbtn" onClick={() => redirectRegister()}>Register</button>
+          </form>
+          {validation ? <span></span> : <span className="validation">Invalid email or password</span>}
       </div>
+      <Footer/>
     </div>
   );
 }

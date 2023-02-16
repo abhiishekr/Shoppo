@@ -3,6 +3,7 @@ import "./styles/products.scss";
 import { GetCall } from "../../Backend/API/APICalls";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 
 function GetProduct() {
@@ -18,6 +19,8 @@ function GetProduct() {
     const products = await GetCall();
     setProducts(products);
   };
+  
+
   const [user, setUser] = useState(false);
   function getUser() {
     if (localStorage.user) {
@@ -31,7 +34,7 @@ function GetProduct() {
   }
 
   const GotoSingleProd = (id) => {
-    console.log(id);
+    return navigateTo("/singleProduct/",{ state: { id: id }});
   };
   return (
     
@@ -74,6 +77,7 @@ function GetProduct() {
           </a>
         </div>
       )}
+      <Footer/>
     </div>
   );
 }

@@ -3,7 +3,9 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { user } from "../Context/RegisterSlice";
-import "../Login/styles/Login.scss";
+import "./styles/Register.scss";
+import Footer from "../Footer/Footer";
+import Navbar from "../Navbar/Navbar";
 
 function Register() {
   const { register, handleSubmit } = useForm();
@@ -26,6 +28,7 @@ function Register() {
 
   return (
     <div>
+      <Navbar display={false}/>
       <div className="form">
         <form onSubmit={handleSubmit(onSubmit)}>
           <label>Email</label>
@@ -56,7 +59,9 @@ function Register() {
             Register
           </button>
           <a className="login-link" href="/">Already have an account? Click here to login</a>
+          
         </form>
+        <Footer/>
       </div>
     </div>
   );

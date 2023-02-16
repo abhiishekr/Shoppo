@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { GetSingleCall, DeleteCall } from "../../Backend/API/APICalls";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./styles/GetSingleProduct.scss";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 function GetSingleProduct() {
   const { state } = useLocation();
-  
 
   const { id } = state;
   const [data, setData] = useState({});
@@ -22,16 +23,18 @@ function GetSingleProduct() {
     let result = await DeleteCall(id);
     return console.log(result);
   };
+  const navigateTo = useNavigate();
   function handleOnClick(id) {
-    console.log("handle")
+    console.log("handle");
   }
 
   return (
-    <div className="parent">
-      {
+    <div>
+      <Navbar display={false}/>
+      <div className="parent">
         <div className="container">
           <div>
-            <img src={data.image} className="img" alt="#"/>
+            <img src={data.image} className="img" alt="#" />
           </div>
           <div className="title">{data.title}</div>
           <div className="price">${data.price}</div>
@@ -55,7 +58,8 @@ function GetSingleProduct() {
             </button>{" "}
           </div>
         </div>
-      }
+      </div>
+      <Footer />
     </div>
   );
 }
