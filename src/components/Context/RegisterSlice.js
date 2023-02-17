@@ -5,19 +5,12 @@ export const userSlice = createSlice({
   initialState: {
     user: null
   },
-  name:"userLogin",
-  initialState:{
-    userLogin:false
-  },
   reducers: {
     user: (state,action) => {
       state.user = action.payload;
     },
-    userLogin:(state,action)=>{
-      state.userLogin=action.payload;
-    }
   },
 });
 
-export const { user,userLogin } = userSlice.actions;
+export const { user } = userSlice.actions;
 export default userSlice.reducer;

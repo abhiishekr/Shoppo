@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+$font:'Inter', sans-serif;
 .container{
     display:flex;
     justify-content: center;
@@ -8,10 +9,8 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding:40px;
     border-radius: 16px;
-
-}   
+} 
     
-
 .parent{
     margin-top: 30px;
     display:flex;
@@ -28,21 +27,21 @@
 
 .title{
 
-    font-family: 'Inter', sans-serif;
+    font-family:$font ;
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 30px;
     margin-top: 30px;
 }
 .price{
-    font-family: 'Inter', sans-serif;
+    font-family: $font;
     font-size: 28px;
     font-weight: 500;
     margin-bottom: 30px;
 
 }
 .desc{
-    font-family: 'Inter', sans-serif;
+    font-family: $font;
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 30px;
@@ -55,29 +54,43 @@
   border-width: 0;
   cursor: pointer;
   padding: 10px 12px;
-  background-color: rgb(173, 173, 173);
+  color: white;
+  background-color: rgb(252, 135, 135);
   position:relative;
   left: -150%;
   &:hover{
     cursor: pointer;
-    scale: 101%;
+    scale: 105%;
     transition: ease-in-out;
-    transition-duration: 550ms;
+    transition-duration: 350ms;
+    background-color: red;
     }
   
+}
+.deleted-item{
+    display:flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    font-family: $font;
+    top: 200px;
+    font-size: 20px;
+
 }
 .updatebtn{
   border-radius: 8px;
   border-width: 0;
   cursor: pointer;
+  color: white;
   padding: 10px 12px;
-  background-color: rgb(173, 173, 173);
+  background-color: rgb(0, 0, 0);
   position: relative;
   right: -150%;
   &:hover{
     cursor: pointer;
-    scale: 101%;
+    scale: 105%;
     transition: ease-in-out;
-    transition-duration: 550ms;
+    transition-duration: 350ms;
     }
 }

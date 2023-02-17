@@ -3,6 +3,7 @@ import { GetSingleCall, DeleteCall } from "../../Backend/API/APICalls";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./styles/GetSingleProduct.scss";
 import Navbar from "../Navbar/Navbar";
+import{Button} from "antd"
 
 function GetSingleProduct() {
   const { state } = useLocation();
@@ -45,6 +46,7 @@ function GetSingleProduct() {
               <div className="desc">{data.description}</div>
               <div>
                 <button
+                  type="primary"
                   className="deletebtn"
                   onClick={() => {
                     deleteHandler(data.id);
@@ -53,6 +55,7 @@ function GetSingleProduct() {
                   Delete
                 </button>
                 <button
+                  type="primary"
                   className="updatebtn"
                   onClick={() => {
                     handleOnClick(data.id);
@@ -66,9 +69,10 @@ function GetSingleProduct() {
         </div>
       ) : (
         <div className="deleted-item">
-          Item Deleted
-          <a className="redirect-link" href="/product">
-            Click here to return to Product page
+          Item Deleted 
+          &nbsp;
+          <a  href="/product">
+            Click here to return to Product page.
           </a>
         </div>
       )}

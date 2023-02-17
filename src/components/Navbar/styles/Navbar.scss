@@ -28,3 +28,15 @@
         transition-duration: 550ms;
         }
 }
+
+.logoutbtn{
+        width:50px;
+        position: fixed;
+        right:70px;
+    &:hover{
+            cursor: pointer;
+            scale: 101%;
+            transition: ease-in-out;
+            transition-duration: 550ms;
+            }
+}

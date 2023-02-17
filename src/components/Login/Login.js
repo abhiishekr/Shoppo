@@ -3,10 +3,10 @@ import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import "./styles/Login.scss";
-import { Input } from "antd";
+import { Input,Button } from "antd";
 
 function Login() {
-  const { register, handleSubmit, control } = useForm();
+  const { handleSubmit, control } = useForm();
   const [validation, setValidation] = useState(true);
   const navigateTo = useNavigate();
   function redirectRegister() {
@@ -15,6 +15,7 @@ function Login() {
 
   const onSubmit = async (data) => {
     const temp = JSON.parse(localStorage.getItem("user"));
+    console.log(data)
     if (temp === null) {
       setValidation(false);
     } else if (data.email === temp.email && data.password === temp.password) {
@@ -23,6 +24,7 @@ function Login() {
     } else {
       setValidation(false);
     }
+
   };
 
   return (
@@ -33,31 +35,22 @@ function Login() {
           <label>Email</label>
           <Controller
             control={control}
-            className="form-control"
-            type="text"
             name="email"
-            placeholder="email"
-            {...register("email")}
-            
-            render={({ field }) => <Input {...field} />}
+            render={({ field }) => <Input {...field} type="text"  className="email" placeholder="email" />}
           />
           <label>Password</label>
           <Controller
-            className="form-control"
-            type="text"
             control={control}
-            placeholder="password"
             name="password"
-            {...register("password")}
-            render={({ field }) => <Input {...field} />}
+            render={({ field }) => <Input {...field} type="password"  className="password" placeholder="password" />}
           />
           
-          <button className="loginbtn" type="primary" onClick={()=>{onSubmit()}}>
+          <Button className="loginbtn" type="primary" onClick={handleSubmit(onSubmit)}>
             Login
-          </button>
-          <button className="loginbtn" onClick={() => redirectRegister()}>
+          </Button>
+          <Button className="loginbtn" type="primary" onClick={() => redirectRegister()}>
             Register
-          </button>
+          </Button>
         </form>
         {validation ? (
           <span></span>

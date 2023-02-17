@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { PostCall } from "../../Backend/API/APICalls";
 import { useForm } from "react-hook-form";
 import "./styles/AddProduct.scss";
+import {Button} from "antd"
 
 
 function AddProduct() {
@@ -22,39 +23,40 @@ function AddProduct() {
 
   return (
     <div>
+      <h1>Add Product Page</h1>
       <div className="form">
         <form onSubmit={handleSubmit(handleRegistration)}>
-          <input className="prod-name"
+          <input className="input-box"
             type="text"
             label="product-name"
             placeholder="title"
             {...register("title")}
           />
-          <input className="prod-price"
+          <input className="input-box"
             type="text"
             label="price"
             placeholder="price"
             {...register("price")}
           />
-          <input className="prod-description"
+          <input className="input-box"
             type="text"
             label="Description"
             placeholder="description"
             {...register("description")}
           />
-          <input className="prod-image"
+          <input className="input-box"
             type="text"
             label="image"
             placeholder="image"
             {...register("image")}
           />
-          <input className="prod-category"
+          <input className="input-box"
             type="text"
             label="category"
             placeholder="category"
             {...register("category")}
           />
-          <button className="submitbtn" type="submit">Submit</button>
+          <Button className="submitbtn" type="primary" onClick={handleSubmit(handleRegistration)}>Submit</Button>
         </form>
       </div>
 

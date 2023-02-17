@@ -1,13 +1,14 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { user } from "../Context/RegisterSlice";
 import "./styles/Register.scss";
 import Navbar from "../Navbar/Navbar";
+import { Input,Button } from "antd";
 
 function Register() {
-  const { register, handleSubmit } = useForm();
+  const { control, handleSubmit} = useForm();
   const dispatch = useDispatch();
   const navigateTo=useNavigate();
   const onSubmit = (data) => {
@@ -31,32 +32,26 @@ function Register() {
       <div className="form">
         <form onSubmit={handleSubmit(onSubmit)}>
           <label>Email</label>
-          <input
-            className="form-control"
-            type="email"
+          <Controller
+            control={control}
             name="email"
-            placeholder="email"
-            {...register("email",{ required: true })}
+            render={({ field }) => <Input {...field} type="email" className="email" placeholder="email" required={true}/>}
           />
           <label>Password</label>
-          <input
-            className="form-control"
-            type="password"
+          <Controller
+            control={control}
             name="password"
-            placeholder="password"
-            {...register("password",{ required: true })}
+            render={({ field }) => <Input {...field} type="password" className="password" placeholder="password" />}
           />
           <label>Confirm Password</label>
-          <input
-            className="form-control"
-            type="password"
+          <Controller
+            control={control}
             name="confirmPassword"
-            placeholder="ConfirmPassword"
-            {...register("confirmPassword",{ required: true })}
+            render={({ field }) => <Input {...field} type="password" className="password" placeholder="confirm password" />}
           />
-          <button className="loginbtn" type="submit">
+          <Button className="registerbtn" type="primary" onClick={handleSubmit(onSubmit)}>
             Register
-          </button>
+          </Button>
           <a className="login-link" href="/">Already have an account? Click here to login</a>
           
         </form>
