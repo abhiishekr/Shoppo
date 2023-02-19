@@ -2,6 +2,8 @@ import React from "react";
 import "./styles/Navbar.scss";
 import { PlusIcon,ArrowLeftOnRectangleIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { userLogin } from "../Context/LoginSlice";
 
 const Navbar = (props) => {
   const displayPlusIcon = props.display;
@@ -10,6 +12,16 @@ const Navbar = (props) => {
     console.log("hancleclick");
     navigateTo("/AddProduct")
   }
+const dispatch=useDispatch();
+function handleLogout(){
+  dispatch(
+    userLogin({
+      userLogin:false,
+      email:null
+    })
+    )
+  navigateTo("/")
+}
 
   return (
     <div>
@@ -23,7 +35,7 @@ const Navbar = (props) => {
               handleOnClick();
             }}
           ></PlusIcon>
-          <ArrowLeftOnRectangleIcon className="logoutbtn" onClick={()=>{navigateTo("/")}}></ArrowLeftOnRectangleIcon>
+          <ArrowLeftOnRectangleIcon className="logoutbtn" onClick={()=>{handleLogout()}}></ArrowLeftOnRectangleIcon>
         </>
         ) : (
           <div></div>

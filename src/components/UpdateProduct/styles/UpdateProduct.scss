@@ -1,24 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 $font:"Inter";
-.form{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
-.input-box{
-    box-sizing: border-box;
+
+.update-form{
     display: flex;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    width: 200%;
-    border: none;
-    border-bottom: 0.5px solid black;
-    padding: 10px;
-    font-family: $font;
-    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+.prod{
+    display:flex;
+    flex-direction: column;
+
+}
+    
 .submitbtn{
-    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+
 }
 .item-updated{
     font-family: $font;
@@ -26,9 +25,4 @@ $font:"Inter";
     margin-left: 620px;
     font-weight: 700;
     color: rgb(101, 222, 101);
-}
-
-.label{
-    font-family: $font;
-    margin-top: 20px;
 }
