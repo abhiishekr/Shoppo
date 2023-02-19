@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+$font:"Inter";
 .form{
     display:flex;
     align-items: center;
     justify-content: center;
-}
+
 .prod-title{
     margin-left: 48px;
 }
@@ -21,4 +22,15 @@
 .prod-category{
     margin-left: 19px;
     width: 350px;
+}
+.item-updated{
+    font-family: $font;
+    margin-top: 0px;
+    margin-left: 100px;
+    font-weight: 700;
+    color: rgb(135, 242, 135);
+}
+.subbtn{
+    margin-left: 85px;
+}
 }

@@ -17,7 +17,6 @@ function UpdateProduct() {
       <Navbar display={false}/>
       
        <UpdateProductCard id={id}/>
-        {/* {updated ? <div></div>:<span className="item-updated">Item updated</span>} */}
       </div>
   );
 }

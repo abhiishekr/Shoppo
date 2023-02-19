@@ -6,6 +6,7 @@ import { PostCall } from "../../Backend/API/APICalls";
 
 function AddProductCard() {
   const [data, setData] = useState({});
+  const [addItem,showAddItem]=useState(false)
 
   const handleRegistration = (data) => {
     setData(data);
@@ -14,6 +15,7 @@ function AddProductCard() {
 
   async function getData(data) {
     const temp = await PostCall(data);
+    showAddItem(true)
     return setData(temp);
   }
   console.log(data);
@@ -93,11 +95,12 @@ function AddProductCard() {
             span: 16,
           }}
         >
-          <Button type="primary" htmlType="submit">
+          <Button className="subbtn" type="primary" htmlType="submit">
             Submit
           </Button>
         </Form.Item>
       </Form>
+      {addItem ? <div className="item-updated">Item Added!</div> : " "}
     </div>
   );
 }
