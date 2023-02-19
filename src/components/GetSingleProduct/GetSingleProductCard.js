@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { DeleteCall } from "../../Backend/API/APICalls";
+import "./styles/GetSingleProduct.scss";
 
 function GetSingleProductCard(props) {
   const [click, setClick] = useState(true);
@@ -50,7 +51,7 @@ function GetSingleProductCard(props) {
         </div>
       ) : (
         <div className="deleted-item">
-          Item Deleted &nbsp;
+          Item Deleted. &nbsp;
           <div className="redirect" onClick={()=>{return navigateTo("/Product")}}>Click here to return to Product page.</div>
         </div>
       )}

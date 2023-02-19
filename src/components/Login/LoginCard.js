@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
-import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { Input,Button } from "antd";
 import { useDispatch } from "react-redux";
 import { userLogin } from "../Context/LoginSlice";
+import { Button, Form, Input } from "antd";
 import "./styles/Login.scss";
 
 function LoginCard() {
-    const { handleSubmit, control } = useForm();
   const [validation, setValidation] = useState(true);
   const navigateTo = useNavigate();
   const dispatch=useDispatch();
@@ -34,30 +32,53 @@ function LoginCard() {
     }
 
   };
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
   return (
     <div>
       <div className="form">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <label>Email</label>
-          <Controller
-            control={control}
-            name="email"
-            render={({ field }) => <Input {...field} type="text"  className="email" placeholder="email" />}
-          />
-          <label>Password</label>
-          <Controller
-            control={control}
-            name="password"
-            render={({ field }) => <Input {...field} type="password"  className="password" placeholder="password" />}
-          />
-          
-          <Button className="loginbtn" type="primary" onClick={handleSubmit(onSubmit)}>
-            Login
+        <Form onFinish={onSubmit} onFinishFailed={onFinishFailed}>
+        <Form.Item
+          label="E-mail"
+          name="email"
+          rules={[
+            {
+              required: true,
+              message: "Please input your E-mail!",
+            },
+            {
+              type: "email",
+              message: "Please enter the correct E-mail",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
+          label="Password"
+          name="password"
+          rules={[
+            {
+              required: true,
+              message: "Please input your password!",
+            },
+          ]}
+        >
+          <Input.Password />
+        </Form.Item>
+        <Form.Item
+          wrapperCol={{
+            offset: 8,
+            span: 16,
+          }}
+        >
+          <Button type="primary" htmlType="submit">
+            Submit
           </Button>
-          <Button className="loginbtn" type="primary" onClick={() => redirectRegister()}>
-            Register
-          </Button>
-        </form>
+        </Form.Item>
+      </Form>
         {validation ? (
           <span></span>
         ) : (

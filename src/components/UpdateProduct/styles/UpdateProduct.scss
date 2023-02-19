@@ -6,23 +6,36 @@ $font:"Inter";
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 450px;
 }
 
 .prod{
     display:flex;
     flex-direction: column;
-
+    margin: 10px;
+    width: 300px;
+    border: 0px;
+    border-bottom: solid black 1px;
+    font-family: $font;
+    height: 40px;
 }
     
 .submitbtn{
     display: flex;
     flex-direction: column;
-
+    padding: 10px;
+    
+&:hover{
+    cursor: pointer;
+    scale: 101%;
+    transition: ease-in-out;
+    transition-duration: 550ms;
+}
 }
 .item-updated{
     font-family: $font;
-    margin-top: -27px;
-    margin-left: 620px;
+    margin-top: -28px;
+    margin-left: 200px;
     font-weight: 700;
     color: rgb(101, 222, 101);
 }

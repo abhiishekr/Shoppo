@@ -94,3 +94,13 @@ $font:'Inter', sans-serif;
     transition-duration: 350ms;
     }
 }
+.redirect{
+    color: rgb(104, 175, 255);
+    &:hover{
+        cursor: pointer;
+        scale: 105%;
+        transition: ease-in-out;
+        transition-duration: 150ms;
+        }
+}
+

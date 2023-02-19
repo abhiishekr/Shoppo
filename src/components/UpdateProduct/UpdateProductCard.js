@@ -1,51 +1,83 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { GetSingleCall } from "../../Backend/API/APICalls";
-import "./styles/UpdateProduct.scss"
-
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { updated } from "../Context/UpdateSlice";
+import Store from "../Store/Store";
+import "./styles/UpdateProduct.scss";
 
 function UpdateProductCard(props) {
-  const [title,setTitle]=useState("");
-  const [price,setPrice]=useState("");
-  const [description,setDescription]=useState("");
-  const [image,setImage]=useState("");
-  const [category,setCategory]=useState("");
-function handleOnChange(e){
-  return setTitle(e)
-}
-  
-useEffect(() => {
-  getData(props.id)
+  const [title, setTitle] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
+  const [category, setCategory] = useState("");
+  const [update,showUpdate]=useState(false)
+  const dispatch=useDispatch();
+  const navigateTo=useNavigate();
+  let res;
+  // function handleOnChange(e){
+  //   console.log(e.target.value)
+  // }
 
-}, [])
+  useEffect(() => {
+    if (Store.getState().updated === true) {
+      console.log("first");
+    } else {
+      getData(props.id);
+    }
+  }, []);
 
-const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm();
   const handleRegistration = (data) => {
-    console.log(data)
+    formJson(title,price,description,image,category)
+    dispatch(
+      updated({
+        updated:true
+      })
+    )    
   };
-async function getData(id) {
-  const res = await GetSingleCall(id);
-  setTitle(res.title);
-  setPrice(res.price);
-  setDescription(res.description);
-  setImage(res.image);
-  setCategory(res.category);
-}
+  function getData(id) {
+   res = JSON.parse(localStorage.getItem("singleProduct"));
+    setTitle(res.title);
+    setPrice(res.price);
+    setDescription(res.description);
+    setImage(res.image);
+    setCategory(res.category);
+  }
+
+  function formJson(title,price,description,image,category){
+    const items={
+      title:title,
+      price:price,
+      description:description,
+      image:image,
+      category:category
+    }  
+ localStorage.setItem("singleProduct",JSON.stringify(items))
+ showUpdate(true);
+  }
+  
+
 
   return (
     <div>
-<div className="update-form">
+      <div className="update-form">
         <form onSubmit={handleSubmit(handleRegistration)}>
           <label>Title</label>
           <input
             className="prod"
             type="text"
             defaultValue={title}
-            onChange={(e)=>{handleOnChange(e)}}
             placeholder="title"
             required={true}
-            {...register("title")}
+            {...register("title", {
+              onChange: (e) => {
+                setTitle(e.target.value);
+              },
+            })}
           />
+
           <label>Price</label>
           <input
             className="prod"
@@ -53,7 +85,11 @@ async function getData(id) {
             placeholder="price"
             defaultValue={price}
             required={true}
-            {...register("price")}
+            {...register("price",{
+              onChange: (e) => {
+                setPrice(e.target.value);
+              },
+            })}
           />
           <label>Description</label>
           <input
@@ -62,7 +98,11 @@ async function getData(id) {
             defaultValue={description}
             placeholder="description"
             required={true}
-            {...register("description")}
+            {...register("description",{
+              onChange: (e) => {
+                setDescription(e.target.value);
+              },
+            })}
           />
           <label>Image</label>
           <input
@@ -71,7 +111,11 @@ async function getData(id) {
             placeholder="image"
             defaultValue={image}
             required={true}
-            {...register("image")}
+            {...register("image",{
+              onChange: (e) => {
+                setImage(e.target.value);
+              },
+            })}
           />
           <label>Category</label>
           <input
@@ -81,12 +125,17 @@ async function getData(id) {
             placeholder="category"
             defaultValue={category}
             required={true}
-            {...register("category")}
+            {...register("category",{
+              onChange: (e) => {
+                setCategory(e.target.value);
+              },
+            })}
           />
-          <button className="submitbtn" type="submit">
+          <button className="submitbtn" type="submit" >
             Submit
           </button>
         </form>
+        {update?<div className="item-updated">Item Updated!</div>:" "}
       </div>
     </div>
   );

@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { PostCall } from "../../Backend/API/APICalls";
-import { useForm } from "react-hook-form";
-import "./styles/AddProduct.scss";
+import React from "react";
 import AddProductCard from "./AddProductCard";
+import Navbar from "../Navbar/Navbar";
 
 
 
@@ -10,6 +8,7 @@ function AddProduct() {
   
   return (
     <div>
+      <Navbar display={false} />
       <AddProductCard/>
     </div>
   );

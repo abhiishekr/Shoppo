@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Button, Form, Input } from "antd";
+import "./styles/AddProduct.scss";
 import { PostCall } from "../../Backend/API/APICalls";
+
 
 function AddProductCard() {
   const [data, setData] = useState({});
@@ -19,7 +21,8 @@ function AddProductCard() {
     console.log("Failed:", errorInfo);
   };
   return (
-    <div>
+    <div className="form">
+
       <Form onFinish={handleRegistration} onFinishFailed={onFinishFailed}>
         <Form.Item
           label="Title"
@@ -27,15 +30,12 @@ function AddProductCard() {
           rules={[
             {
               required: true,
-              message: "Please input your E-mail!",
+              message: "Please enter the Title",
             },
-            {
-              type: "text",
-              message: "Please enter the correct E-mail",
-            },
+
           ]}
         >
-          <Input />
+          <Input  className="prod-title"/>
         </Form.Item>
 
         <Form.Item
@@ -44,11 +44,11 @@ function AddProductCard() {
           rules={[
             {
               required: true,
-              message: "Please input your password!",
+              message: "Please enter the Price",
             },
           ]}
         >
-          <Input />
+          <Input  className="prod-price"/>
         </Form.Item>
         <Form.Item
           name="description"
@@ -56,11 +56,11 @@ function AddProductCard() {
           rules={[
             {
               required: true,
-              message: "Passwords don't match !",
+              message: "Please enter the Description",
             },
           ]}
         >
-          <Input />
+          <Input  className="prod-description"/>
         </Form.Item>
         <Form.Item
           name="image"
@@ -68,11 +68,11 @@ function AddProductCard() {
           rules={[
             {
               required: true,
-              message: "Passwords don't match !",
+              message: "Please Input Image URL",
             },
           ]}
         >
-          <Input />
+          <Input  className="prod-image"/>
         </Form.Item>
         <Form.Item
           name="category"
@@ -80,11 +80,11 @@ function AddProductCard() {
           rules={[
             {
               required: true,
-              message: "Passwords don't match !",
+              message: "Please enter the Category",
             },
           ]}
         >
-          <Input />
+          <Input  className="prod-category"/>
         </Form.Item>
 
         <Form.Item

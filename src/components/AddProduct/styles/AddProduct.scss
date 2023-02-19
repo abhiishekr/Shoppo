@@ -3,32 +3,22 @@
     display:flex;
     align-items: center;
     justify-content: center;
-
-
 }
-.input-box{
-    box-sizing: border-box;
-    display: flex;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 200%;
-    border: none;
-    border-bottom: 0.5px solid black;
-    padding: 10px;
-    font-family: "Inter";
-    font-size: 16px;
-
+.prod-title{
+    margin-left: 48px;
 }
-.submitbtn{
-    margin-top: 10%;
-    border-radius: 8px;
-    cursor: pointer;
-    background-color: rgb(173, 173, 173);
-
-&:hover{
-        cursor: pointer;
-        scale: 101%;
-        transition: ease-in-out;
-        transition-duration: 550ms;
-        }
+.prod-price{
+    margin-left: 45px;
+}
+.prod-description{
+    margin-left: 4px;
+    width: 320px;
+    height: 100px;
+}
+.prod-image{
+    margin-left: 36px;
+}
+.prod-category{
+    margin-left: 19px;
+    width: 350px;
 }
