@@ -14,12 +14,12 @@ function App() {
   return (
     <>
     <Routes>
-      <Route path="/" exact element = {<Login/>} />
-      <Route path="/Product" exact element = {<GetProduct/>} />
-      <Route path="/singleProduct/" exact element={<GetSingleProduct/>}/>
-      <Route path="/Register" exact element = {<Register/>} />
-      <Route path="/Nav" exact element={<Navbar/>}/>
-      <Route path="/AddProduct" exact element={<AddProduct/>}/>
+      <Route path="/" element = {<Login/>} />
+      <Route path="/Product" element = {<GetProduct/>} />
+      <Route path="/singleProduct/" element={<GetSingleProduct/>}/>
+      <Route path="/Register" element = {<Register/>} />
+      <Route path="/Nav" element={<Navbar/>}/>
+      <Route path="/AddProduct" element={<AddProduct/>}/>
       <Route path="/UpdateProduct" element={<UpdateProduct/>}/>
     </Routes>
     <Footer/>

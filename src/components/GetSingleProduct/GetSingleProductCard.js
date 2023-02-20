@@ -11,7 +11,7 @@ function GetSingleProductCard(props) {
     setClick(false);
     return console.log(result);
   };
-
+  console.log(props.data)
   function handleOnClick(id) {
     return navigateTo("/UpdateProduct", { state: { id: id } });
   }

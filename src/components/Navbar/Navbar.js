@@ -6,8 +6,6 @@ import {
   HomeIcon,
 } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { userLogin } from "../Context/LoginSlice";
 
 const Navbar = (props) => {
   const displayIcon = props.display;
@@ -19,14 +17,8 @@ const Navbar = (props) => {
   function homePageHandler() {
     navigateTo("/Product");
   }
-  const dispatch = useDispatch();
   function handleLogout() {
-    dispatch(
-      userLogin({
-        userLogin: false,
-        email: null,
-      })
-    );
+    localStorage.removeItem("login")
     navigateTo("/");
   }
 

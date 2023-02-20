@@ -8,13 +8,16 @@ import GetProductCard from "./GetProductCard";
 function GetProduct() {
   const navigateTo = useNavigate();
   const [user, setUser] = useState(false);
+
   useEffect(() => {
-    getUser();
+    const temp=localStorage.getItem("login")
+    if(temp){
+    setUser(temp)}
+    else {
+      redirectLogin()
+    }
   }, []);
 
-  function getUser() {
-    setUser(Store.getState().userLogin.userLogin.userLogin);
-  }
   function redirectLogin() {
     return navigateTo("/");
   }

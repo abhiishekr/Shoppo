@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { userLogin } from "../Context/LoginSlice";
 import { Button, Form, Input } from "antd";
 import "./styles/Login.scss";
 
 function LoginCard() {
   const [validation, setValidation] = useState(true);
   const navigateTo = useNavigate();
-  const dispatch = useDispatch();
   function redirectRegister() {
     navigateTo("/Register");
   }
@@ -19,12 +16,8 @@ function LoginCard() {
       setValidation(false);
     } else if (data.email === temp.email && data.password === temp.password) {
       setValidation(true);
-      dispatch(
-        userLogin({
-          email: data.email,
-          userLogin: true,
-        })
-      );
+
+      localStorage.setItem("login",JSON.stringify(data));
       navigateTo("/Product");
     } else {
       setValidation(false);
