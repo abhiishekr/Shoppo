@@ -2,17 +2,26 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import GetSingleProductCard from "./GetSingleProductCard";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchProduct, states } from "../Context/UpdateSlice";
+import { GetSingleCall } from "../../Backend/API/APICalls";
+import Store from "../Store/Store";
+
+import { useDispatch } from "react-redux";
 
 function GetSingleProduct() {
   const { state } = useLocation();
   const { id } = state;
-  const navigateTo = useNavigate();
+  const [data, setData] = useState({});
   const [user, setUser] = useState(false);
+  const navigateTo=useNavigate();
   const dispatch=useDispatch();
-  const data=useSelector(states)
+
   // console.log(data)
+  async function getData(id) {
+    const temp = await GetSingleCall(id);
+    await localStorage.setItem("singleProduct", JSON.stringify(temp));
+    const a = JSON.parse(await localStorage.getItem("singleProduct"));
+    setData(a);
+  }
   useEffect(() => {
     const temp=localStorage.getItem("login")
     if(temp){
@@ -20,16 +29,17 @@ function GetSingleProduct() {
     else {
       redirectLogin()
     }
-    getData(id)
+    if (Store.getState().updated.updated.updated === true) {
+      setData(JSON.parse(localStorage.getItem("singleProduct")))
+    } else {
+      getData(id);
+    }
   }, []);
 
   function redirectLogin() {
     return navigateTo("/");
   }
   
-  async function getData(id) {
-    dispatch (fetchProduct(id));
-  }
 
   return (
     <div>

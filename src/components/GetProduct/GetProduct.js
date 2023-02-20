@@ -2,14 +2,21 @@ import React, { useState, useEffect } from "react";
 import "./styles/products.scss";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
-import Store from "../Store/Store";
 import GetProductCard from "./GetProductCard";
+import { updated } from "../Context/UpdateSlice";
+import { useDispatch } from "react-redux";
 
 function GetProduct() {
   const navigateTo = useNavigate();
   const [user, setUser] = useState(false);
+  const dispatch=useDispatch();
 
   useEffect(() => {
+    dispatch(
+      updated({
+        updated:false,
+      })
+    )
     const temp=localStorage.getItem("login")
     if(temp){
     setUser(temp)}
