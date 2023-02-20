@@ -3,10 +3,11 @@ import { Button, Form, Input } from "antd";
 import { useDispatch } from "react-redux";
 import { user } from "../Context/RegisterSlice";
 import { useNavigate } from "react-router-dom";
+import "./styles/Register.scss"
 
 function RegisterCard() {
   const dispatch = useDispatch();
-  const navigateTo=useNavigate();
+  const navigateTo = useNavigate();
   const onFinish = (values) => {
     console.log("Success:", values);
     dispatch(
@@ -15,16 +16,15 @@ function RegisterCard() {
         password: values.password,
         isRegistered: true,
       })
-    )
-    localStorage.setItem("user",JSON.stringify(values))
-    navigateTo('/')
-
+    );
+    localStorage.setItem("user", JSON.stringify(values));
+    navigateTo("/");
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
   return (
-    <div>
+    <div className="register-form">
       <Form onFinish={onFinish} onFinishFailed={onFinishFailed}>
         <Form.Item
           label="E-mail"

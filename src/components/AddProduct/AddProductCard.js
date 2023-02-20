@@ -3,10 +3,9 @@ import { Button, Form, Input } from "antd";
 import "./styles/AddProduct.scss";
 import { PostCall } from "../../Backend/API/APICalls";
 
-
 function AddProductCard() {
   const [data, setData] = useState({});
-  const [addItem,showAddItem]=useState(false)
+  const [addItem, showAddItem] = useState(false);
 
   const handleRegistration = (data) => {
     setData(data);
@@ -15,7 +14,7 @@ function AddProductCard() {
 
   async function getData(data) {
     const temp = await PostCall(data);
-    showAddItem(true)
+    showAddItem(true);
     return setData(temp);
   }
   console.log(data);
@@ -24,7 +23,6 @@ function AddProductCard() {
   };
   return (
     <div className="form">
-
       <Form onFinish={handleRegistration} onFinishFailed={onFinishFailed}>
         <Form.Item
           label="Title"
@@ -34,10 +32,9 @@ function AddProductCard() {
               required: true,
               message: "Please enter the Title",
             },
-
           ]}
         >
-          <Input  className="prod-title"/>
+          <Input className="prod-title" />
         </Form.Item>
 
         <Form.Item
@@ -50,7 +47,7 @@ function AddProductCard() {
             },
           ]}
         >
-          <Input  className="prod-price"/>
+          <Input className="prod-price" />
         </Form.Item>
         <Form.Item
           name="description"
@@ -62,7 +59,7 @@ function AddProductCard() {
             },
           ]}
         >
-          <Input  className="prod-description"/>
+          <Input className="prod-description" />
         </Form.Item>
         <Form.Item
           name="image"
@@ -74,7 +71,7 @@ function AddProductCard() {
             },
           ]}
         >
-          <Input  className="prod-image"/>
+          <Input className="prod-image" />
         </Form.Item>
         <Form.Item
           name="category"
@@ -86,7 +83,7 @@ function AddProductCard() {
             },
           ]}
         >
-          <Input  className="prod-category"/>
+          <Input className="prod-category" />
         </Form.Item>
 
         <Form.Item

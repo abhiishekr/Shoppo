@@ -15,7 +15,7 @@
     width: 100vw;
     z-index: 1000;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-}
+
 
 .addbtn{
     width:50px;
@@ -23,9 +23,6 @@
     right:0px;
 &:hover{
         cursor: pointer;
-        scale: 101%;
-        transition: ease-in-out;
-        transition-duration: 550ms;
         }
 }
 
@@ -34,9 +31,15 @@
         position: fixed;
         right:70px;
     &:hover{
-            cursor: pointer;
-            scale: 101%;
-            transition: ease-in-out;
-            transition-duration: 550ms;
-            }
+        cursor: pointer;
+        }
+}
+.homebtn{
+    width:50px;
+    position: fixed;
+    right:150px;
+&:hover{
+    cursor: pointer;
+    }
+}
 }

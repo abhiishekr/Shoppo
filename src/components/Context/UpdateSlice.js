@@ -3,10 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 export const updatedSlice = createSlice({
   name: "updated",
   initialState: {
-    updated: false
+    updated: false,
   },
   reducers: {
-    updated: (state,action) => {
+    updated: (state, action) => {
       state.updated = action.payload;
     },
   },

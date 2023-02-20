@@ -13,7 +13,6 @@ function GetSingleProductCard(props) {
   };
 
   function handleOnClick(id) {
-
     return navigateTo("/UpdateProduct", { state: { id: id } });
   }
   return (
@@ -52,7 +51,14 @@ function GetSingleProductCard(props) {
       ) : (
         <div className="deleted-item">
           Item Deleted. &nbsp;
-          <div className="redirect" onClick={()=>{return navigateTo("/Product")}}>Click here to return to Product page.</div>
+          <div
+            className="redirect"
+            onClick={() => {
+              return navigateTo("/Product");
+            }}
+          >
+            Click here to return to Product page.
+          </div>
         </div>
       )}
     </div>

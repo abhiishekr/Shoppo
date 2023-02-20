@@ -3,12 +3,10 @@ import Navbar from "../Navbar/Navbar";
 import LoginCard from "./LoginCard";
 
 function Login() {
-  
-
   return (
     <div>
-      <Navbar display={false} />
-     <LoginCard/>
+      <Navbar  />
+      <LoginCard />
     </div>
   );
 }

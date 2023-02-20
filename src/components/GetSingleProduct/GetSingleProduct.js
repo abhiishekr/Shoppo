@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import GetSingleProductCard from "./GetSingleProductCard";
 import { GetSingleCall } from "../../Backend/API/APICalls";
@@ -9,8 +9,18 @@ function GetSingleProduct() {
   const { state } = useLocation();
   const { id } = state;
   const [data, setData] = useState({});
+  const navigateTo = useNavigate();
+  const [user, setUser] = useState(false);
+  useEffect(() => {
+    getUser();
+  }, []);
 
-  
+  function getUser() {
+    setUser(Store.getState().userLogin.userLogin.userLogin);
+  }
+  function redirectLogin() {
+    return navigateTo("/");
+  }
 
   async function getData(id) {
     const temp = await GetSingleCall(id);
@@ -20,7 +30,7 @@ function GetSingleProduct() {
   }
   useEffect(() => {
     if (Store.getState().updated.updated.updated === true) {
-      setData(JSON.parse(localStorage.getItem("singleProduct")))
+      setData(JSON.parse(localStorage.getItem("singleProduct")));
     } else {
       getData(id);
     }
@@ -28,8 +38,12 @@ function GetSingleProduct() {
 
   return (
     <div>
-      <Navbar display={false} />
-      <GetSingleProductCard data={data} />
+      <Navbar home={true} />
+      {user ? (
+        <GetSingleProductCard data={data} />
+      ) : (
+        <div>{redirectLogin()}</div>
+      )}
     </div>
   );
 }

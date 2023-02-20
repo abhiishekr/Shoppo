@@ -1,23 +1,32 @@
 import React, { useEffect, useState } from "react";
-import { GetSingleCall, PatchCall } from "../../Backend/API/APICalls";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
+import Store from "../Store/Store";
 
 import UpdateProductCard from "./UpdateProductCard";
-
 
 function UpdateProduct() {
   const { state } = useLocation();
   const { id } = state;
-  const [updated,setUpdated]=useState(true)
-  const [response,setResponse]=useState({});
+  const navigateTo = useNavigate();
+  const [user, setUser] = useState(false);
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  function getUser() {
+    setUser(Store.getState().userLogin.userLogin.userLogin);
+  }
+  function redirectLogin() {
+    return navigateTo("/");
+  }
 
   return (
     <div>
-      <Navbar display={false}/>
-      
-       <UpdateProductCard id={id}/>
-      </div>
+      <Navbar home={true} />
+
+      {user ? <UpdateProductCard id={id} /> : <div>{redirectLogin()}</div>}
+    </div>
   );
 }
 

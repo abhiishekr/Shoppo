@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-$height:30px;
-$width:250px;
 
 .form{
     display:flex;
@@ -8,43 +5,16 @@ $width:250px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    
 
-.email{
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 7px;
-    width: $width;
-    height: $height;
-}
-.password{
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 7px;
-    width: $width;
-    height: $height;
-}
-.loginbtn{
-    border: none;
-    padding: 8px;
-    border-radius: 7px; 
-    margin-right: 80px;   
-&:hover{
-    cursor: pointer;
-    transition: ease-in-out;
-    transition-duration: 550ms;
-    }
+.registerbtn{
+    margin-left: 200px;
 } 
 .validation{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 75px;
-    margin-top: 20px;
+
+    margin-top: 30px;
     font-family: 'Inter', sans-serif;
     font-size: 17px;
     color: red;
