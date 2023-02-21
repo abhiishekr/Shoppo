@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { PatchCall } from "../../Backend/API/APICalls";
 import { updated } from "../Context/UpdateSlice";
 import Store from "../Store/Store";
 import "./styles/UpdateProduct.scss";
 
 
 function UpdateProductCard(props) {
+  const { state } = useLocation();
+  const { id } = state;
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
@@ -15,20 +18,20 @@ function UpdateProductCard(props) {
   const [category, setCategory] = useState("");
   const [update,showUpdate]=useState(false)
   const dispatch=useDispatch();
-  const navigateTo=useNavigate();
+
   let res;
 
   useEffect(() => {
     if (Store.getState().updated === true) {
-      console.log("first");
     } else {
       getData(props.id);
     }
+  
   }, []);
-  // async function updateFunc(data) {
-  //   const temp = await PatchCall(id, data);
-  //   return updateFunc(temp);
-  // }
+  async function updateFunc(data) {
+    const temp = await PatchCall(id, data);
+    console.log(temp);
+  }
 
   const { register, handleSubmit } = useForm();
   const handleRegistration = (data) => {
@@ -37,7 +40,8 @@ function UpdateProductCard(props) {
       updated({
         updated:true
       })
-    )    
+    ) 
+    updateFunc(data)   
   };
   function getData(id) {
     res = JSON.parse(localStorage.getItem("singleProduct"));

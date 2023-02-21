@@ -1,54 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
+$font:"Inter";
 .Product-container{
-    display:flex;
+    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     padding-top: 150px;
-}
-.cart{
-    display:flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
     margin: 20px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    border-radius: 18px;
 
-.product-description{
-        display:flex;
-        flex-direction: column;
-        justify-content:center;
-        align-items: center;
-        margin: 20px;
-        font-size: larger;
-        max-width: 500px;
-        font-family: 'Inter', sans-serif;
-        line-height: 38px;
-    }   
+}
+.card{ 
+    margin: 30px;
+    max-width: 350px;
+
 &:hover{
     cursor: pointer;
     scale: 101%;
     transition: ease-in-out;
     transition-duration: 250ms;
     }
-
-
-.product-title{
-        font-weight: 600;
-        font-size: 20px;
-        text-align: center;
-        margin-bottom: 10px;
 }
-.product-price{
-    font-weight:500;
+.product-image{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    width: 400px;
+    padding: 50px;
+}
+
+.product-details{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    font-family:$font;
+    font-weight: 600;
+    font-size: 30px;
+    align-items: center;
+    text-align: center;
+    height: 100px;
+    width: 250px;
+}
+.product-category{
+    font-family:$font;
+    font-weight: 300;
     font-size: 20px;
     text-align: center;
-    margin-bottom: 10px;
+        
 }
-.product-des{
-    font-weight: 200;
-    font-size: 20px;
-    text-align: center;
-    margin-bottom: 10px;
-}
-}
+

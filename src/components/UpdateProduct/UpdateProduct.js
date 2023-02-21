@@ -7,7 +7,6 @@ function UpdateProduct() {
   const { state } = useLocation();
   const { id } = state;
   const navigateTo = useNavigate();
-  // const data=useSelector(states)
   const [user, setUser] = useState(false);
   useEffect(() => {
     const temp=localStorage.getItem("login")
